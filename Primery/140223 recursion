@@ -1,0 +1,36 @@
+def length(Mylist):
+    if Mylist == []:
+        return 0
+    else:
+        count = length(Mylist[1:]) # отбрасываем первый элемент
+        # count = length(Mylist[:-1]) # отбрасываем последний элемент
+        # if Mylist[0] > 0:
+        count += 1
+        return count
+    
+print(length([1, 2, 3, 4]))
+
+
+def reverse_range(begin, end):
+    if end == begin:
+        return [begin]
+    return [end] + reverse_range(begin, end-1)
+    
+print(reverse_range(1, 11))
+
+def reverse_range(Mylist):
+    if not Mylist:
+        return Mylist
+    return Mylist[-1:] + reverse_range(Mylist[:-1])
+    
+print(reverse_range([1, 2, 3, 4]))
+
+def filter_positive(Mylist):
+    if not Mylist:
+        return Mylist
+    if Mylist[0] <= 0:
+        return filter_positive(Mylist[1:])
+    else:
+        return [Mylist[0]] + filter_positive(Mylist[1:])
+    
+print(filter_positive([-1, -2, -3, 5]))

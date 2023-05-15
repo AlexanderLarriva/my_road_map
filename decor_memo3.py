@@ -6,7 +6,7 @@ def memoizing_decor(count = 1):
     d = {}
     bank = []
     def inner(arg):
-      if len(d) < (count + 1):
+      if len(d) >= count:
         if arg in d:
           return d[arg]
         else:

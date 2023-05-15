@@ -1,7 +1,9 @@
 def memoized(func):
-  '''Function - decorator
+  '''
+  Function - decorator.
   
-  Demonstrates how closures and the decorator function work.'''
+  Demonstrates how closures and the decorator function work.
+  '''
   d = {}
 
   def inner(arg):
