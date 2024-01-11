@@ -1,0 +1,17 @@
+import copy
+
+from hexlet.fs import get_children, get_meta, get_name, is_file, mkdir, mkfile
+
+
+# BEGIN
+def downcase_file_names(node):
+    new_meta = copy.deepcopy(get_meta(node))
+    name = get_name(node)
+    
+    if is_file(node):
+        return mkfile(name.lower(), new_meta)
+    
+    children = get_children(node)
+    new_children = map(downcase_file_names, children)
+    return mkdir(name, list(new_children), new_meta)
+# END

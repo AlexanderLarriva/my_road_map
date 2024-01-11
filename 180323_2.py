@@ -10,15 +10,15 @@ tree = fs.mkdir('/', [
 # Приводим к нижнему регистру имена директорий и файлов внутри конкретной директории
 def to_lower(node):
     name = fs.get_name(node)
-    print(name)
+    # print(name)
     new_meta = copy.deepcopy(fs.get_meta(node))
-    print(new_meta)
+    # print(new_meta)
     if fs.is_directory(node):
         return fs.mkdir(name.lower(), fs.get_children(node), new_meta)
     return fs.mkfile(name.lower(), new_meta)
 
 children = fs.get_children(tree)
-print(children)
+# print(children)
 new_children = list(map(to_lower, children))
 # Обязательно копируем метаданные
 new_meta = copy.deepcopy(fs.get_meta(tree))
